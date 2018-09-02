@@ -1,6 +1,8 @@
 Mirix
 =====
 
+![](https://ci.appveyor.com/api/projects/status/a54ip6aeofk790uf?svg=true)
+
 **Mirix** is a highly awesome interpreted language that you will really want to use. It is written in C# so that we can get it running everywhere due to .NET Core being available on Windows, Linux and Max OSX these days (for x86 and ARM).
 
 ## A taste of Mirix
