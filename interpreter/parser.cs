@@ -26,6 +26,11 @@ namespace Mirix
 
                 //The type
                 //TODO
+
+                public VariableDeclaration(string identifier, string initialValue, string type)
+                {
+                    this.identifier = identifier;
+                }
             }
         }
     }
