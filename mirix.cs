@@ -4,6 +4,8 @@ using System.IO;
 namespace Mirix
 {
     using g;
+    using Utils;
+
     public sealed class Mirix
     {
         public static void Main(String[] args)
@@ -25,25 +27,27 @@ namespace Mirix
                     //If the file exists
                     if (File.Exists(sourceFile))
                     {
+                        //Start the interpreter with the given source file
                         runProgram(sourceFile);
                     }
                     //Else if the file doesn't exist then it is an error
                     else
                     {
-                        Console.Out.WriteLine("Could not find file \""+sourceFile+"\"!");
+                        Printer.WriteLine("Could not find file \""+sourceFile+"\"!",Printer.MessageType.ERROR);
                     }
                 }
             }
             //Else, it is an error
             else
             {
-                Console.Out.WriteLine("Error starting Mirix");
+                Printer.WriteLine("Error starting Mirix",Printer.MessageType.ERROR);
             }
         }
 
+        //Start the interpreter and run it with the given source file
         private static void runProgram(string filename)
         {
-            Console.Out.WriteLine("Running program \"" + filename + "\"...");
+            Printer.WriteLine("Running program \"" + filename + "\"...",Printer.MessageType.INFO);
 
             //Create a new Interpreter for the program to run in
             Interpreter.Interpreter interpreter = new Interpreter.Interpreter(filename);
