@@ -5,6 +5,22 @@ namespace Mirix
         namespace Parser
         {
 
+            using System.Collections.Generic;
+
+            //The Parser
+            //Generates code
+            public sealed class Parser
+            {
+                //Returns a Instruction[] of Instructions
+                public static Instruction[] parse(Lexer.Token[] tokens)
+                {
+                    //The working set of Instructions
+                    List<Instruction> instructions = new List<Instruction>();
+
+                    return instructions.ToArray();
+                }
+            }
+
             //Represents an instruction
             public class Instruction
             {
