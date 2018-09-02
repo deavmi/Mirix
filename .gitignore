@@ -1,3 +1,5 @@
 .vscode/*
-obj/*
+obj/Mirix*
+obj/Debug
+obj/netcoreapp2.1
 bin/*
