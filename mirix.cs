@@ -14,7 +14,7 @@ namespace Mirix
                 //If the argument `--help` is given then show the help screen
                 if (args[0].Equals("--help"))
                 {
-                    //TODO: Show help scree
+                    //TODO: Show help screen
                 }
                 //Else, the gievn argument it the path to a file (the program to run)
                 else

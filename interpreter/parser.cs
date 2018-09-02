@@ -8,7 +8,24 @@ namespace Mirix
             //Represents an instruction
             public class Instruction
             {
-                
+
+            }
+
+            /*
+             * VariableDeclaration
+             * 
+             * This instruction represents the declaration of a variable.
+             */
+            public class VariableDeclaration : Instruction
+            {
+                //The identifier of the variable
+                private string identifier;
+
+                //The initial value
+                //TODO
+
+                //The type
+                //TODO
             }
         }
     }
