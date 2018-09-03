@@ -24,6 +24,12 @@ namespace Mirix.Interpreter.Execution
 
         private void init()
         {
+            //Setup the stack
+            //TODO
+
+            //Setup the heap
+            //TODO
+
             programData.setBlockPointer
         }
 
@@ -33,6 +39,8 @@ namespace Mirix.Interpreter.Execution
 
             //Execution begins with the entry block which would be the first block in the ProgramData and hence the currentBlock
             Block entryBlock = programData.getCurrentBlock();
+
+            //
             
         }
 
