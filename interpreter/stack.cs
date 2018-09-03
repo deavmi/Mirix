@@ -62,7 +62,7 @@ namespace Mirix.Interpreter.Data.Stack
         //Create a new stack frame
         public StackFrame()
         {
-
+            Console.Out.WriteLine("New stack frame created.");
         }
 
         //Add a local variable (add a variable to the stack frame)

@@ -25,7 +25,7 @@ namespace Mirix.Interpreter.Data.Code
 
         public void setBlockPointer(int blockIndex)
         {
-
+            currentBlockPointer = blockIndex;
         }
 
         public Block getCurrentBlock()

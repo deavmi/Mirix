@@ -91,9 +91,12 @@ namespace Mirix
                 Block[] blocks = Parser.Parser.parse(tokens);
                 Printer.WriteLine("Number of blocks: " + blocks.Length,Printer.MessageType.INFO);
 
+                //Package all the blocks into a ProgramData
+                ProgramData programData = new ProgramData(blocks);
+
                 //Now we create a new Runner which will be what runs and maintains this program for the
                 //duration of its runtime
-                Runner runner = new Runner(blocks);
+                Runner runner = new Runner(programData);
 
             }
         }
