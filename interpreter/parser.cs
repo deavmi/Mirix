@@ -7,6 +7,7 @@ namespace Mirix
 
             using System.Collections.Generic;
             using System;
+            using Instructions;
 
             //The Parser
             //Generates code

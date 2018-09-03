@@ -8,6 +8,8 @@ namespace Mirix
          using System.IO;
          using System;
          using Utils;
+         using Instructions;
+         using Parser;
 
         public sealed class Interpreter
         {
@@ -84,10 +86,10 @@ namespace Mirix
                 Printer.WriteLine("Number of tokens: " + tokens.Length,Printer.MessageType.INFO);
 
                 //Parse and build instrutions
-                Parser.Instruction[] instructions = Parser.Parser.parse(tokens);
+                Instruction[] instructions = Parser.parse(tokens);
                 Printer.WriteLine("Number of instructions: " + instructions.Length,Printer.MessageType.INFO);
 
-                
+
             }
         }
     }

@@ -1,7 +1,6 @@
-namespace Mirix
+namespace Mirix.Instructions
 {
-namespace Instructions
-{
+    using System;
 
     //Represents an instruction
     public class Instruction
@@ -38,4 +37,4 @@ namespace Instructions
             return identifier;
         }
     }
-}}
+}

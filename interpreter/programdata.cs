@@ -2,7 +2,7 @@
 namespace Mirix.Interpreter.Memory.Code
 {
     using System.Collections.Generic;
-    using Mirix.Instructions;
+    using Instructions;
 
 
     //ProgramData structure
