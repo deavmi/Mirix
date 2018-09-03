@@ -7,6 +7,7 @@ namespace Mirix
          using System.Collections.Generic;
          using System.IO;
          using System;
+         using Utils;
 
         public sealed class Interpreter
         {
@@ -38,7 +39,7 @@ namespace Mirix
                     //If the end-of-file (EOF) is reached
                     if(readResult == -1)
                     {
-                        Console.Out.WriteLine("End of file reached.");
+                        Printer.WriteLine("End of file reached.",Printer.MessageType.INFO);
                         break;
                     }
                     //Read the byte
@@ -54,7 +55,7 @@ namespace Mirix
 
                 //TODO: Raise an exception if the list is empty (meaning that the file was empty)
                 int bytesRead = bytes.Count;
-                Console.Out.WriteLine("Bytes read from source file: " + bytesRead);
+                Printer.WriteLine("Bytes read from source file: " + bytesRead,Printer.MessageType.INFO);
 
                 //The final set of bytes
                 byte[] finalBytes = bytes.ToArray();
@@ -76,6 +77,7 @@ namespace Mirix
             {
                 //Get Tokens
                 Token[] tokens = Lexer.Lexer.getTokens(getSourceCode());
+                Printer.WriteLine("Bytes read from source file: " + bytesRead,null);
             }
         }
     }

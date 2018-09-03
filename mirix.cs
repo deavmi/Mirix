@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Mirix
 {
-    using g;
+
     using Utils;
 
     public sealed class Mirix
@@ -18,7 +18,7 @@ namespace Mirix
                 {
                     //TODO: Show help screen
                 }
-                //Else, the gievn argument it the path to a file (the program to run)
+                //Else, the given argument it the path to a file (the program to run)
                 else
                 {
                     //The argument is the file path of the source file to run
