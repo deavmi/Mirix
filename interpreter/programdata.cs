@@ -1,6 +1,8 @@
 //Code-related routines and types
 namespace Mirix.Interpreter.Memory.Code
 {
+    using System.Collections.Generic;
+
     //ProgramData structure
     public sealed class ProgramData
     {
