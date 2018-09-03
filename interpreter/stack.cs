@@ -17,6 +17,8 @@ namespace Mirix.Interpreter.Memory.Stack
         public StackFrame getCurrentFrame()
         {
             //TODO
+            StackFrame currentStackFrame = null;
+            return currentStackFrame;
         }
     }
 
