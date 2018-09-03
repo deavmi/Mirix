@@ -1,17 +1,14 @@
 //Defines structures of code
 
-namespace Mirix.Interpreter.Parser.Structures
+namespace Mirix.Interpreter.Data.Stack
 {
-    //Represents a construct such as a variable or (that's all actually as of now)          
-    public class Construct
-    {
 
-    }
-
-    public class Variable : Construct
+    //A value/variable aaah TODO on the stack
+    public class Variable
     {
         private string identifier, typeName, initialValue;
 
+        //Returns this variables
         public string getIdentifier()
         {
             return identifier;

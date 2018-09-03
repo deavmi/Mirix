@@ -4,7 +4,7 @@ namespace Mirix.Interpreter.Data.Stack
     using System.Collections.Generic;
     using System;
 
-    using Parser.Structures;
+    using Parser.Types;
 
     //Stack structure
     public sealed class Stack
