@@ -50,8 +50,6 @@ namespace Mirix.Interpreter.Execution
             //Setup the heap
             heap = new Heap();
 
-            programData.setBlockPointer
-
             //Begin execution of the program
             Console.Out.WriteLine("Environment all setup, beginning execution of program...");
 

@@ -8,13 +8,13 @@ namespace Mirix.Interpreter.Data.Code
     public sealed class ProgramData
     {
         //Array of blocks of code (functions/sub routines) that make up our program
-        private List<Block> blocks;
+        private Block[] blocks;
 
         //Pointer to the code block currently being executed
         private int currentBlockPointer;
 
         //Construct a new ProgramData with the given blocks (functions/sub routines)
-        public ProgramData(List<Block> blocks)
+        public ProgramData(Block[] blocks)
         {
             //Add the blocks
             this.blocks = blocks;
@@ -30,7 +30,7 @@ namespace Mirix.Interpreter.Data.Code
 
         public Block getCurrentBlock()
         {
-            return blocks.ToArray()[currentBlockPointer];
+            return blocks[currentBlockPointer];
         }
 
     }
