@@ -25,6 +25,9 @@ namespace Mirix.Interpreter.Execution
         //Pointer 
 
         public ProgramState()
+        {
+
+        }
 
         private int blockPointer;
     }

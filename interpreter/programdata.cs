@@ -28,6 +28,11 @@ namespace Mirix.Interpreter.Data.Code
 
         }
 
+        public Block getCurrentBlock()
+        {
+            return blocks.ToArray()[currentBlockPointer];
+        }
+
     }
 
 
