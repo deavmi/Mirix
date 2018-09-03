@@ -6,6 +6,7 @@ namespace Mirix
         {
 
             using System.Collections.Generic;
+            using System;
 
             //The Parser
             //Generates code
@@ -16,6 +17,50 @@ namespace Mirix
                 {
                     //The working set of Instructions
                     List<Instruction> instructions = new List<Instruction>();
+
+                    //Loop through the tokens and build instructions
+                    int i = 0;
+                    while(i < tokens.Length)
+                    {
+                        //Current token
+                        string currentToken = tokens[i].getToken();
+
+                        //If the token is "var"
+                        if(currentToken.Equals("var"))
+                        {
+                            //Await a variable name
+                            i++;
+                            string variableName = tokens[i].getToken();
+                            Console.Out.WriteLine("VariableName: " + variableName);
+
+                            //Await either semi-colon or comma, or equals
+                            i++;
+                            string nextItem = tokens[i].getToken();
+
+                            //If we are a semi-colon (ends variable declaration)
+                            if(nextItem.Equals(";"))
+                            {
+                                Console.Out.WriteLine("Semi-colon encountered, ending variable declaration");
+                                
+                            }
+                            //If we are an equals sign (assignment with variable declaration)
+                            else if(nextItem.Equals("="))
+                            {
+
+                            }
+                            //If we are a comma (declaring multiple variables)
+                            else if(nextItem.Equals(","))
+                            {
+
+                            }
+                            
+
+                            
+                        }
+
+                        Console.Out.WriteLine("Currently processing token \""+currentToken+"\"");
+                    }
+
 
                     return instructions.ToArray();
                 }

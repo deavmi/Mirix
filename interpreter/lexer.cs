@@ -33,7 +33,7 @@ namespace Mirix
                             //Only create a token when there is a built token
                             if (!currentToken.Equals(""))
                             {
-                                //We flush the currentToken and create a new token from it
+                                //We flush the `currentToken` and create a new token from it
                                 //when we encounter a space
                                 Token builtToken = new Token(currentToken);
                                 Console.Out.WriteLine("Created token: \"" + builtToken.getToken() +"\"");
@@ -42,6 +42,11 @@ namespace Mirix
                                 //Clear the `currentToken` token build-up
                                 currentToken = "";
                             }
+                        }
+                        //When encountering a semi-colon
+                        else if(currentChar == ';')
+                        {
+                            //TODO
                         }
                         //If not a whitespace then we collect characters
                         else
