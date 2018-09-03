@@ -28,10 +28,17 @@ namespace Mirix
                         //If the token is "var"
                         if(currentToken.Equals("var"))
                         {
+                            //Await a type name
+                            i++;
+                            string typeName = tokens[i].getToken();
+                            Console.Out.WriteLine("TypeName: " + typeName);
+
                             //Await a variable name
                             i++;
                             string variableName = tokens[i].getToken();
                             Console.Out.WriteLine("VariableName: " + variableName);
+
+                            
 
                             //Await either semi-colon or comma, or equals
                             i++;
@@ -41,7 +48,7 @@ namespace Mirix
                             if(nextItem.Equals(";"))
                             {
                                 Console.Out.WriteLine("Semi-colon encountered, ending variable declaration");
-                                
+
                             }
                             //If we are an equals sign (assignment with variable declaration)
                             else if(nextItem.Equals("="))
