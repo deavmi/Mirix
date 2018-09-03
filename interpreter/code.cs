@@ -1,6 +1,6 @@
 //Defines structures of code
 
-namespace Parser.Structures
+namespace Mirix.Interpreter.Parser.Structures
 {
     //Represents a construct such as a variable or (that's all actually as of now)          
     public class Construct
