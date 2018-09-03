@@ -103,7 +103,7 @@ namespace Mirix
                      this.initialValue = initialValue;
                 }
 
-                //Returns the idetifier
+                //Returns the iden
                 public String getIdentifier()
                 {
                     return identifier;
