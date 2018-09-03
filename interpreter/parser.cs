@@ -48,12 +48,13 @@ namespace Mirix
                             if(nextItem.Equals(";"))
                             {
                                 Console.Out.WriteLine("Semi-colon encountered, ending variable declaration");
-
+                                VariableDeclaration varDec = new VariableDeclaration(typeName,variableName);
                             }
                             //If we are an equals sign (assignment with variable declaration)
                             else if(nextItem.Equals("="))
                             {
-
+                                //TODO: Add a while loop here as this can go on for some time.
+                                //TODO, don't implement this as a feature.
                             }
                             //If we are a comma (declaring multiple variables)
                             else if(nextItem.Equals(","))
@@ -86,19 +87,23 @@ namespace Mirix
              */
             public class VariableDeclaration : Instruction
             {
-                //The identifier of the variable
-                private string identifier;
+                //The type, identifier and initial value of the variable
+                private string typeName, identifier, initialValue;
 
-                //The initial value
-                //TODO
-
-                //The type
-                //TODO
-
-                public VariableDeclaration(string identifier, string initialValue, string type)
+                public VariableDeclaration(string typeName, string identifier)
                 {
+                    this.typeName = typeName;
                     this.identifier = identifier;
                 }
+
+                public VariableDeclaration(string typeName, string identifier, string initialValue)
+                {
+                     this.typeName = typeName;
+                     this.identifier = identifier;
+                     this.initialValue = initialValue;
+                }
+
+                
             }
         }
     }
