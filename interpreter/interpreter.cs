@@ -67,6 +67,10 @@ namespace Mirix
                 for(int i = 0; i < finalBytes.Length; i++)
                 {
                     finalChars[i] = (char)finalBytes[i];
+
+                    //Experiencing strange characters, hence let see the bytes
+                    Console.Out.WriteLine("Current character: " + finalChars[i]);
+                    Console.Out.WriteLine("Current byte: " + finalBytes[i]);
                 }
 
                 return finalChars;
@@ -77,7 +81,7 @@ namespace Mirix
             {
                 //Get Tokens
                 Token[] tokens = Lexer.Lexer.getTokens(getSourceCode());
-                Printer.WriteLine("Token count: " + tokens.Length,Printer.MessageType.INFO);
+                Printer.WriteLine("Number of tokens: " + tokens.Length,Printer.MessageType.INFO);
             }
         }
     }
