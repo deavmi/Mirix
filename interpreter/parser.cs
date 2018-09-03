@@ -19,6 +19,13 @@ namespace Mirix
                     //The working set of Instructions
                     List<Instruction> instructions = new List<Instruction>();
 
+                    //Begin to look for the keyword `function` then a `name` then `{`
+                    //then start generating code for this function in there and stop when
+                    //we encounter a `}`.
+                    //Repeat this process
+
+                    bool error = false;
+
                     //Loop through the tokens and build instructions
                     int i = 0;
                     while(i < tokens.Length)
@@ -26,52 +33,49 @@ namespace Mirix
                         //Current token
                         string currentToken = tokens[i].getToken();
 
-                        //If the token is "var"
-                        if(currentToken.Equals("var"))
+
+                        //First expect the keyword `function`
+                        if(i == 0)
                         {
-                            //Await a type name
-                            i++;
-                            string typeName = tokens[i].getToken();
-                            Console.Out.WriteLine("TypeName: " + typeName);
-
-                            //Await a variable name
-                            i++;
-                            string variableName = tokens[i].getToken();
-                            Console.Out.WriteLine("VariableName: " + variableName);
-
-                            
-
-                            //Await either semi-colon or comma, or equals
-                            i++;
-                            string nextItem = tokens[i].getToken();
-
-                            //If we are a semi-colon (ends variable declaration)
-                            if(nextItem.Equals(";"))
-                            {
-                                Console.Out.WriteLine("Semi-colon encountered, ending variable declaration");
-                                VariableDeclaration varDec = new VariableDeclaration(typeName,variableName);
-                            }
-                            //If we are an equals sign (assignment with variable declaration)
-                            else if(nextItem.Equals("="))
-                            {
-                                //TODO: Add a while loop here as this can go on for some time.
-                                //TODO, don't implement this as a feature.
-                            }
-                            //If we are a comma (declaring multiple variables)
-                            else if(nextItem.Equals(","))
-                            {
-
-                            }
-                            
-
-                            
+                           if(currentToken.Equals("function"))
+                           {
+                               //If we get the keyword `function` then we can go ahead
+                               continue;
+                           }
+                           else
+                           {
+                               Console.Out.WriteLine("Expected function, got \""+currentToken+"\".");
+                               error = true;
+                               break;
+                           }
+                        }
+                        //Secondly expect the a name for the function
+                        else if(i == 1)
+                        {
+                            tokens.AsSpan();//TODO cotinue here
                         }
 
                         Console.Out.WriteLine("Currently processing token \""+currentToken+"\"");
+
+                        //Check if any errors occurred
+                        if(error)
+                        {
+                            Console.Out.WriteLine("Errors occurred during parsing.");
+                        }
+                        else
+                        {
+                            //All is good
+                            Console.Out.WriteLine("Parsing succeeded");
+                        }
                     }
 
 
                     return instructions.ToArray();
+                }
+
+                private void parseFunction()
+                {
+                    //TODO: Add function parsing code here
                 }
             }
 
