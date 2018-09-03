@@ -3,8 +3,7 @@ namespace Mirix.Interpreter.Memory.Code
 {
     using System.Collections.Generic;
     using Instructions;
-
-
+    
     //ProgramData structure
     public sealed class ProgramData
     {

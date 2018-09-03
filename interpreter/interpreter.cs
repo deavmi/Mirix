@@ -86,7 +86,7 @@ namespace Mirix
                 Printer.WriteLine("Number of tokens: " + tokens.Length,Printer.MessageType.INFO);
 
                 //Parse and build instrutions
-                Instruction[] instructions = Parser.parse(tokens);
+                Instruction[] instructions = Parser.Parser.parse(tokens);
                 Printer.WriteLine("Number of instructions: " + instructions.Length,Printer.MessageType.INFO);
 
 

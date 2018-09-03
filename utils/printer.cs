@@ -1,4 +1,4 @@
-namespace Utils
+namespace Mirix.Utils
 {
 
     using System;
