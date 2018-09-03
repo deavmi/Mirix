@@ -10,6 +10,8 @@ namespace Mirix
          using Utils;
          using Instructions;
          using Parser;
+         using Data.Code;
+         using Execution;
 
         public sealed class Interpreter
         {
@@ -85,10 +87,13 @@ namespace Mirix
                 Token[] tokens = Lexer.Lexer.getTokens(getSourceCode());
                 Printer.WriteLine("Number of tokens: " + tokens.Length,Printer.MessageType.INFO);
 
-                //Parse and build instrutions
-                Instruction[] instructions = Parser.Parser.parse(tokens);
-                Printer.WriteLine("Number of instructions: " + instructions.Length,Printer.MessageType.INFO);
+                //Parses and returns the Blocks which can then be executed
+                Block[] blocks = Parser.Parser.parse(tokens);
+                Printer.WriteLine("Number of blocks: " + blocks.Length,Printer.MessageType.INFO);
 
+                //Now we create a new Runner which will be what runs and maintains this program for the
+                //duration of its runtime
+                Runner runner = new Runner(blocks);
 
             }
         }

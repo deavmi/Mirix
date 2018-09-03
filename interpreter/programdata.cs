@@ -1,5 +1,5 @@
 //Code-related routines and types
-namespace Mirix.Interpreter.Memory.Code
+namespace Mirix.Interpreter.Data.Code
 {
     using System.Collections.Generic;
     using Instructions;
@@ -30,6 +30,8 @@ namespace Mirix.Interpreter.Memory.Code
 
     }
 
+
+    //Removed instructiojn pointer fro here, this must be in the executor code rather, block must not change
     //A Block of code (sub routine/function)
     public sealed class Block
     {

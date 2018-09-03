@@ -1,5 +1,5 @@
 //Heap-related routines and types
-namespace Mirix.Interpreter.Memory.Heap
+namespace Mirix.Interpreter.Data.Heap
 {
     //Heap structure
     public sealed class Heap

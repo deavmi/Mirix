@@ -8,16 +8,17 @@ namespace Mirix
             using System.Collections.Generic;
             using System;
             using Instructions;
+            using Data.Code;
 
             //The Parser
             //Generates code
             public sealed class Parser
             {
-                //Returns a Instruction[] of Instructions
-                public static Instruction[] parse(Lexer.Token[] tokens)
+                //Returns a Block[]
+                public static Block[] parse(Lexer.Token[] tokens)
                 {
                     //The working set of Instructions
-                    List<Instruction> instructions = new List<Instruction>();
+                    List<Block> blocks = new List<Block>();
 
                     //Begin to look for the keyword `function` then a `name` then `{`
                     //then start generating code for this function in there and stop when
@@ -80,11 +81,13 @@ namespace Mirix
                     }
 
 
-                    return instructions.ToArray();
+                    return blocks.ToArray();
                 }
 
-                private void parseFunction(ref int tokenIndex, string functionName, )
+                private Block parseFunction(ref int tokenIndex, string functionName, )
                 {
+                    //The generated Block
+                    Block generatedBlock = new Block();
                     //TODO: Add function parsing code here
 
                     //Begin by expecting a `{`

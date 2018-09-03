@@ -1,5 +1,5 @@
 //Stack-related routines and types
-namespace Mirix.Interpreter.Memory.Stack
+namespace Mirix.Interpreter.Data.Stack
 {
     using System.Collections.Generic;
     using Parser.Structures;
