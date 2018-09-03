@@ -77,7 +77,7 @@ namespace Mirix
             {
                 //Get Tokens
                 Token[] tokens = Lexer.Lexer.getTokens(getSourceCode());
-                Printer.WriteLine("Bytes read from source file: " + bytesRead,null);
+                Printer.WriteLine("Token count: " + tokens.Length,Printer.MessageType.INFO);
             }
         }
     }
