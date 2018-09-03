@@ -76,4 +76,10 @@ namespace Interpreter.Memory
             }
         }
     }
+
+    //Code-related routines and types
+    namespace Code
+    {
+        
+    }
 }
