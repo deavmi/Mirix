@@ -11,5 +11,10 @@ namespace Mirix.Interpreter.Parser.Structures
     public class Variable : Construct
     {
         private string identifier, typeName, initialValue;
+
+        public string getIdentifier()
+        {
+            return identifier;
+        }
     }
 }

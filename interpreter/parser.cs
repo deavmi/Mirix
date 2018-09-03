@@ -87,7 +87,7 @@ namespace Mirix
                     return blocks.ToArray();
                 }
 
-                private Block parseFunction(ref int tokenIndex, string functionName, Token[] tokens)
+                private static Block parseFunction(ref int tokenIndex, string functionName, Token[] tokens)
                 {
                     //The generated Block
                     Block generatedBlock;
@@ -108,7 +108,7 @@ namespace Mirix
                         {
                             if (currentToken.Equals("{"))
                             {
-                                
+
                                 continue;
                             }
                         }

@@ -2,6 +2,8 @@
 namespace Mirix.Interpreter.Data.Stack
 {
     using System.Collections.Generic;
+    using System;
+
     using Parser.Structures;
 
     //Stack structure
@@ -68,19 +70,26 @@ namespace Mirix.Interpreter.Data.Stack
         //Add a local variable (add a variable to the stack frame)
         public void addVariable(Variable variable)
         {
-
+            //TODO: implement me
         }
 
         //Returns an array of all the local variables (locals)
         public Variable[] getVariables()
         {
-
+            return locals.ToArray();
         }
 
         //Returns a variable of the given name
         public Variable getVariable(string identifier)
         {
-
+            foreach(Variable variable in locals)
+            {
+                if(variable.getIdentifier().Equals(identifier))
+                {
+                    return variable;
+                }
+            }
+            return null; //TODO: throw exceptions
         }
     }
 }
