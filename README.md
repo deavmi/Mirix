@@ -15,3 +15,11 @@ function main()
     println("Hello and welcome to the world or Mirix!");
 }
 ````
+
+## Internals
+
+So the lexer generates tokens. These tokens are then passed to the parser which generates code from them.
+
+### Data during runtime
+
+We implement a stack-like system where each frame of the `Stack` is a `StackFrame`.
