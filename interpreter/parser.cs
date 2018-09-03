@@ -103,7 +103,11 @@ namespace Mirix
                      this.initialValue = initialValue;
                 }
 
-                
+                //Returns the idetifier
+                public String getIdentifier()
+                {
+                    return identifier;
+                }
             }
         }
     }
