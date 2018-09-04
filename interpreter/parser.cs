@@ -45,6 +45,8 @@ namespace Mirix
                             if (currentToken.Equals("function"))
                             {
                                 //If we get the keyword `function` then we can go ahead
+                                //TODO: Remove me after halt test
+                                Console.Out.WriteLine("HALT");
                                 continue;
                             }
                             else
