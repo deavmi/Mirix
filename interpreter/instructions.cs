@@ -2,9 +2,22 @@ namespace Mirix.Instructions
 {
     using System;
 
+    using Interpreter.Execution;
+
     //Represents an instruction
     public class Instruction
     {
+
+        //The Runner object that all instructions come from
+        //This is here so that instructions can access the program's Code (ProgramData), Stack and Heap.
+        public static Runner runner;
+
+        //All Instructions must implement this method in which they execute their operations
+        public virtual void execute()
+        {
+            Console.Out.WriteLine("Instruction");
+        }
+
         //TODO:
         //Make abstract []
         //Add abstract method
@@ -33,6 +46,15 @@ namespace Mirix.Instructions
         {
             return functionName;
         }
+
+        //When we execute a function call what we want to do is the following:
+        //TODO
+        public void execute()
+        {
+            Console.Out.WriteLine("FunctionCall");
+        }
+
+        
     }
 
 

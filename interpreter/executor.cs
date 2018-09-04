@@ -30,6 +30,25 @@ namespace Mirix.Interpreter.Execution
             this.programData = programData;
         }
 
+        //Returns this program's Heap
+        public Heap getHeap()
+        {
+            return heap;
+        }
+
+        //Returns this program's Stack
+        public Stack getStack()
+        {
+            return stack;
+        }
+
+        //Return this program's ProgramData
+        public ProgramData getProgramData()
+        {
+            return programData;
+        }
+
+
         private void init()
         {
 
@@ -57,9 +76,13 @@ namespace Mirix.Interpreter.Execution
             Block entryBlock = programData.getCurrentBlock();
 
             //Loop through each instruction of the entryBlock and execute them whilst the instruction pointer is (//TODO)
-            while(entryBlock.getCurrentInstruction())
+            while(true)
             {
-                //TODO
+                //Get the current block being executed
+                //Note: On first run this block will be the `entryBlock` (the first in the List<Block>)
+                Block currentBlock = programData.getCurrentBlock();
+
+
             }
 
         }
