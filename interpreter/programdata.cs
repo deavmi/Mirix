@@ -56,13 +56,16 @@ namespace Mirix.Interpreter.Data.Code
         private string blockName;
 
         //Construct a new Block (functions/subroutine) with the given set of instructions
-        public Block(List<Instruction> instructions)
+        public Block(string blockName, List<Instruction> instructions)
         {
             //Add the intructions to this new code block
             this.instructions = instructions;
 
             //Set the instruction pointer to point to the first instruction
             instructionPointer = 0;
+
+            //Set the name of this block (the function's name)
+            this.blockName = blockName;
         }
 
         //Returns this Block's name
