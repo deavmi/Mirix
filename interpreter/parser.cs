@@ -94,6 +94,11 @@ namespace Mirix
                     return blocks.ToArray();
                 }
 
+                private static Instruction[] parseInstructions(int tokenIndex, Token[] tokens)
+                {   //TODO look at ref and without it!!!!!!!!!!
+
+                }
+
                 private static Block parseFunction(ref int tokenIndex, string functionName, Token[] tokens, ref bool error)
                 {
                     //The generated Block
@@ -130,6 +135,14 @@ namespace Mirix
                             //We should actually now have a parseInstructions and pass it off to that which will create a list of instructions,
                             //return them when we it reaches "}" and then we must end there.
                             //If we are not a closing symbol then continue processing each instruction line
+
+                            //Parse it the tokenIndex ref
+                            //Console.Oout.WriteLine(ref tokenIndex); //That would deref it like whenever we are getting its value
+                            //deref when passed as ref to function and somewhere in there it derefs it. When we pass it here we are only
+                            //passing a reference to it but when arithmetic happens it derefs. TODO
+
+                            Instruction[] instructions = parseInstructions(tokenIndex);
+
                             if(currentToken.Equals('}'))
                             {
                                 //TODO: fix me
