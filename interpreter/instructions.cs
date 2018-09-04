@@ -48,7 +48,7 @@ namespace Mirix.Instructions
             //Whether or not an error occurred whilst executing this instruction
             bool errored = false;
 
-            Console.Out.WriteLine("FunctionCall: Attempting to call function with name \""+functionName+"\"...");
+            Console.Out.WriteLine("FunctionCall: Attempting to call function with name \"" + functionName + "\"...");
 
             //First we must find if a function with that name exists
             ProgramData programData = runner.getProgramData();
@@ -60,21 +60,21 @@ namespace Mirix.Instructions
             Block executeBlock = null;
 
             //Find a block with the name of `functionName`
-            foreach(Block block in blocks)
+            foreach (Block block in blocks)
             {
-                if(block.getBlockName().Equals(functionName))
+                if (block.getBlockName().Equals(functionName))
                 {
                     executeBlock = block;
-                    Console.Out.WriteLine("Found a block/function with name\""+block.getBlockName()+"\".");
-                    break; 
+                    Console.Out.WriteLine("Found a block/function with name\"" + block.getBlockName() + "\".");
+                    break;
                 }
             }
 
             //If no block with the given name `functionName` was found then `executeBlock` will hold the value `null reference`
-            if(executeBlock == null)
+            if (executeBlock == null)
             {
                 errored = true;
-                Console.Out.WriteLine("Could not find a block/function with name \""+functionName+"\".");
+                Console.Out.WriteLine("Could not find a block/function with name \"" + functionName + "\".");
             }
             else
             {
@@ -84,7 +84,7 @@ namespace Mirix.Instructions
 
                 //Generate a new StackFrame
                 Interpreter.Data.Stack.StackFrame stackFrame = new Interpreter.Data.Stack.StackFrame();
-                
+
                 //Add the stack frame to the stack
                 stack.addFrame(stackFrame);
 
@@ -98,7 +98,7 @@ namespace Mirix.Instructions
             return errored;
         }
 
-        
+
     }
 
 
@@ -119,9 +119,11 @@ namespace Mirix.Instructions
             return errored;
         }
 
-        private isDeclared()
+        private bool isDeclared()
         {
-
+            //TODO add me
+            bool isIt = false;
+            return isIt;
         }
     }
 
@@ -148,10 +150,27 @@ namespace Mirix.Instructions
             this.initialValue = initialValue;
         }
 
+        //TODO: Implement me
+        public override bool execute()
+        {
+            //TODO
+            bool errored = false;
+
+
+            return errored;
+        }
+
         //Returns the iden
         public String getIdentifier()
         {
             return identifier;
+        }
+
+        private bool isDeclared()
+        {
+            //TODO add me
+            bool isIt = false;
+            return isIt;
         }
     }
 }
