@@ -1,6 +1,7 @@
 namespace Mirix.Interpreter.Language
 {
     using System.Collections.Generic;
+    using System;
 
     namespace Variables
     {
@@ -9,7 +10,7 @@ namespace Mirix.Interpreter.Language
             private string identifier;
 
             //The variable's type
-            private Types type;
+            private Type type;
         }
     }
 
@@ -70,7 +71,13 @@ namespace Mirix.Interpreter.Language
             //Integer (8 bytes)
             public sealed class BuiltInInt64 : Scalar
             {
+//The value
+                Int64 value;
 
+                public BuiltInInt64(short value)
+                {
+                    this.value = value;
+                }
             }
         }
 
