@@ -5,7 +5,10 @@ namespace Mirix.Instructions
     //Represents an instruction
     public class Instruction
     {
-
+        //TODO:
+        //Make abstract []
+        //Add abstract method
+        //Add other kak
     }
 
     /*
