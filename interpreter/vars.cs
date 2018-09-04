@@ -52,7 +52,13 @@ namespace Mirix.Interpreter.Language
             //Short (2 bytes)
             public sealed class BuiltInShort : Scalar
             {
+                //The value
+                short value;
 
+                public BuiltInShort(short value)
+                {
+                    this.value = value;
+                }
             }
 
             //Integer (4 bytes)
@@ -67,7 +73,7 @@ namespace Mirix.Interpreter.Language
 
             }
         }
-        
+
 
 
         //Related types to Records
@@ -77,7 +83,8 @@ namespace Mirix.Interpreter.Language
             public sealed class Record : Value
             {
                 //The elements of the record
-                //TODO: private Dictionary<string, Value> recordElements = new Dictionary<string,Value>();
+                //TODO default compare kak for dictiary
+                private Dictionary<string, Value> recordElements = new Dictionary<string,Value>();
 
                 //Construct a new Record
                 public Record()
