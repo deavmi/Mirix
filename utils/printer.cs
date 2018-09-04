@@ -12,12 +12,18 @@ namespace Mirix.Utils
 
         public static void WriteLine(string message, MessageType messageType)
         {
-            Console.Out.WriteLine(messageType + ": " + message);
+            if (Mirix.debuggingEnabled)
+            {
+                Console.Out.WriteLine(messageType + ": " + message);
+            }
         }
 
         public static void Write(string message, MessageType messageType)
         {
-            Console.Out.Write(messageType + ": " + message);
+            if (Mirix.debuggingEnabled)
+            {
+                Console.Out.Write(messageType + ": " + message);
+            }
         }
     }
 }

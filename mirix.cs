@@ -8,6 +8,10 @@ namespace Mirix
 
     public sealed class Mirix
     {
+
+        //Whether or not debugging is enabled
+        public static bool debuggingEnabled = false;
+
         public static void Main(String[] args)
         {
             //Testing
