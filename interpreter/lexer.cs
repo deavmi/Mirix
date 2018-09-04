@@ -1,83 +1,76 @@
-namespace Mirix
+namespace Mirix.Interpreter.Lexer
 {
+    using System.Collections.Generic;
+    using System;
 
-    namespace Interpreter
+    public sealed class Lexer
     {
-        namespace Lexer
+        public static Token[] getTokens(char[] sourceCode)
         {
-            using System.Collections.Generic;
-            using System;
+            //The tokens
+            List<Token> tokens = new List<Token>();
 
-            public sealed class Lexer
+            //The current token build up
+            string currentToken = "";
+
+            //Loop through the array of characters and build up tokens
+            for (int i = 0; i < sourceCode.Length; i++)
             {
-                public static Token[] getTokens(char[] sourceCode)
+                //The current character
+                char currentChar = sourceCode[i];
+                Console.Out.WriteLine("Current character: " + currentChar);
+
+                //Skip all whitespaces
+                if (currentChar == ' ')
                 {
-                    //The tokens
-                    List<Token> tokens = new List<Token>();
+                    Console.Out.WriteLine("Skipping space character");
 
-                    //The current token build up
-                    string currentToken = "";
-
-                    //Loop through the array of characters and build up tokens
-                    for (int i = 0; i < sourceCode.Length; i++)
+                    //Only create a token when there is a built token
+                    if (!currentToken.Equals(""))
                     {
-                        //The current character
-                        char currentChar = sourceCode[i];
-                        Console.Out.WriteLine("Current character: " + currentChar);
+                        //We flush the `currentToken` and create a new token from it
+                        //when we encounter a space
+                        Token builtToken = new Token(currentToken);
+                        Console.Out.WriteLine("Created token: \"" + builtToken.getToken() + "\"");
+                        tokens.Add(builtToken);
 
-                        //Skip all whitespaces
-                        if (currentChar == ' ')
-                        {
-                            Console.Out.WriteLine("Skipping space character");
-
-                            //Only create a token when there is a built token
-                            if (!currentToken.Equals(""))
-                            {
-                                //We flush the `currentToken` and create a new token from it
-                                //when we encounter a space
-                                Token builtToken = new Token(currentToken);
-                                Console.Out.WriteLine("Created token: \"" + builtToken.getToken() +"\"");
-                                tokens.Add(builtToken);
-                                
-                                //Clear the `currentToken` token build-up
-                                currentToken = "";
-                            }
-                        }
-                        //When encountering a semi-colon
-                        else if(currentChar == ';')
-                        {
-                            //TODO
-                        }
-                        //If not a whitespace then we collect characters
-                        else
-                        {
-                            currentToken = currentToken + currentChar;
-                        }
-
-                        //TODO: Add actual lexer code
+                        //Clear the `currentToken` token build-up
+                        currentToken = "";
                     }
-
-                    Console.Out.WriteLine("Bult token: " + currentToken);
-
-                    return tokens.ToArray();
                 }
+                //When encountering a semi-colon
+                else if (currentChar == ';')
+                {
+                    //TODO
+                }
+                //If not a whitespace then we collect characters
+                else
+                {
+                    currentToken = currentToken + currentChar;
+                }
+
+                //TODO: Add actual lexer code
             }
 
-            public sealed class Token
-            {
-                //The actual token
-                private string token;
+            Console.Out.WriteLine("Bult token: " + currentToken);
 
-                public Token(string token)
-                {
-                    this.token = token;
-                }
+            return tokens.ToArray();
+        }
+    }
 
-                public string getToken()
-                {
-                    return token;
-                }
-            }
+    public sealed class Token
+    {
+        //The actual token
+        private string token;
+
+        public Token(string token)
+        {
+            this.token = token;
+        }
+
+        public string getToken()
+        {
+            return token;
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Mirix.Interpreter.Data.Heap
     //Heap structure
     public sealed class Heap
     {
-        //Add stuff here
         //Heap items
         private List<HeapItem> heapItems = new List<HeapItem>();
 
