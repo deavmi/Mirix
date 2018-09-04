@@ -33,6 +33,12 @@ namespace Mirix.Interpreter.Data.Code
             return blocks[currentBlockPointer];
         }
 
+        //Returns a list of all this program's blocks (functions/sub-routines)
+        public Block[] getBlocks()
+        {
+            return blocks;
+        }
+
     }
 
 
@@ -46,6 +52,10 @@ namespace Mirix.Interpreter.Data.Code
         //Pointer to the currently executing instruction
         private int instructionPointer;
 
+        //The name of the Block (function/subroutine)
+        private string blockName;
+
+        //Construct a new Block (functions/subroutine) with the given set of instructions
         public Block(List<Instruction> instructions)
         {
             //Add the intructions to this new code block
@@ -53,6 +63,12 @@ namespace Mirix.Interpreter.Data.Code
 
             //Set the instruction pointer to point to the first instruction
             instructionPointer = 0;
+        }
+
+        //Returns this Block's name
+        public string getBlockName()
+        {
+            return blockName;
         }
 
         //Return the instruction pointed to by the instruction pointer

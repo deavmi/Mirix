@@ -3,6 +3,8 @@ namespace Mirix.Instructions
     using System;
 
     using Interpreter.Execution;
+    using Interpreter.Data.Code;
+    //using Code;//these namepscas get on my tits TODO: revise me
 
     //Represents an instruction
     public abstract class Instruction
@@ -13,7 +15,7 @@ namespace Mirix.Instructions
         public static Runner runner;
 
         //All Instructions must implement this method in which they execute their operations
-        public abstract void execute();
+        public abstract bool execute();
     }
 
     /*
@@ -41,9 +43,44 @@ namespace Mirix.Instructions
 
         //When we execute a function call what we want to do is the following:
         //TODO new keyword?
-        public new void execute()
+        public override bool execute()
         {
-            Console.Out.WriteLine("FunctionCall");
+            //Whether or not an error occurred whilst executing this instruction
+            bool errored = false;
+
+            Console.Out.WriteLine("FunctionCall: Attempting to call function with name \""+functionName+"\"...");
+
+            //First we must find if a function with that name exists
+            ProgramData programData = runner.getProgramData();
+
+            //The blocks's to search through
+            Block[] blocks = programData.getBlocks();
+
+            //The Block to execute
+            Block executeBlock = null;
+
+            //Find a block with the name of `functionName`
+            foreach(Block block in blocks)
+            {
+                if(block.getBlockName().Equals(functionName))
+                {
+                    executeBlock = block;
+                    break; 
+                }
+            }
+
+            //If no block with the given name `functionName` was found then `executeBlock` will hold the value `null reference`
+            if(executeBlock == null)
+            {
+                errored = true;
+            }
+            else
+            {
+                //TODO: Add code to execute the block here
+                //We must update stuff, new stack, etc.
+            }
+
+            return errored;
         }
 
         

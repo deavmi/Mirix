@@ -13,7 +13,6 @@ namespace Mirix.Interpreter.Execution
     //This executes the program.
     public sealed class Runner
     {
-
         //The Heap of this program
         private Heap heap;
 
@@ -48,12 +47,6 @@ namespace Mirix.Interpreter.Execution
             return programData;
         }
 
-
-        private void init()
-        {
-
-        }
-
         //Start execution of the program
         public void run()
         {
@@ -82,9 +75,20 @@ namespace Mirix.Interpreter.Execution
                 //Note: On first run this block will be the `entryBlock` (the first in the List<Block>)
                 Block currentBlock = programData.getCurrentBlock();
 
+                //Execute the instruction in the block `currentBlock` pointed to by the instruction pointer in the block `currentBlock`
+                Instructions.Instruction currentInstruction = currentBlock.getCurrentInstruction();
+                bool errored = currentInstruction.execute();
+
+                //After execution check if the program must still be running (or has been set to false and hence an error occurred)
+                if(errored)
+                {
+                    Console.Out.WriteLine("An error occurred somewhere in executing the instruction and the interpreter will now halt.");
+                    break;
+                }
+
 
             }
-
+            Console.Out.WriteLine("Code run completed");
         }
 
     }

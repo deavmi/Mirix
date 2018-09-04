@@ -14,14 +14,6 @@ namespace Mirix
 
         public static void Main(String[] args)
         {
-
-            Instructions.Instruction k = new Instructions.Instruction();
-            k.execute();//instruction
-
-            k = new Instructions.FunctionCall("");
-            k.execute();//instruction
-            ((Instructions.FunctionCall)k).execute(); //functioncall
-
             //If we have one argument then we can run that program
             if (args.Length == 1)
             {
