@@ -95,6 +95,19 @@ namespace Mirix.Instructions
     public sealed class VariableAssignment : Instruction
     {
         //TODO: Implement me
+        public override bool execute()
+        {
+            //TODO
+            bool errored = false;
+
+
+            return errored;
+        }
+
+        private isDeclared()
+        {
+
+        }
     }
 
     /*
