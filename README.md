@@ -22,4 +22,10 @@ So the lexer generates tokens. These tokens are then passed to the parser which 
 
 ### Data during runtime
 
-We implement a stack-like system where each frame of the `Stack` is a `StackFrame`.
+We implement a stack-like system where each frame of the `Stack` is a `StackFrame` by which each function call runs on a new `StackFrame` where it can modify its local variables.
+
+There is also a `Heap` that can be accessed anywhere.
+
+### Execution
+
+It may make sense to allow each Instruction to have access to the r=current program as to maniulate it like that and then we need not add specifics in to our `Executor`.
