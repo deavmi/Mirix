@@ -46,16 +46,16 @@ namespace Mirix.Interpreter.Lexer
                     //TODO
                     if (!currentToken.Equals(""))
                     {
-                        Token builtToken = new Token(currentToken);
-                        Console.Out.WriteLine("Created token: \"" + builtToken.getToken() + "\"");
-                        tokens.Add(builtToken);
+                        Token builtToken1 = new Token(currentToken);
+                        Console.Out.WriteLine("Created token: \"" + builtToken1.getToken() + "\"");
+                        tokens.Add(builtToken1);
 
                         //Clear the `currentToken` token build-up
                         currentToken = "";
                     }
 
                     //Add the semi-colon/ or whatever singleton
-                    Token builtToken = new Token(currentChar);
+                    Token builtToken = new Token(""+currentChar);
                     Console.Out.WriteLine("Created token: \"" + builtToken.getToken() + "\"");
                     tokens.Add(builtToken);
                 }
