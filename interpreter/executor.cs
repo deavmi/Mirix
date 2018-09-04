@@ -56,7 +56,11 @@ namespace Mirix.Interpreter.Execution
             //Execution begins with the entry block which would be the first block in the ProgramData and hence the currentBlock
             Block entryBlock = programData.getCurrentBlock();
 
-            //
+            //Loop through each instruction of the entryBlock and execute them whilst the instruction pointer is (//TODO)
+            while(entryBlock.getCurrentInstruction())
+            {
+                //TODO
+            }
 
         }
 

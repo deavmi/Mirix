@@ -9,11 +9,29 @@ namespace Mirix.Instructions
     }
 
     /*
-     * VariableDeclaration
+     * Call
+     *
+     * This instructions represents a call to another function.s
+     */
+    public sealed class FunctionCall : Instruction
+    {
+
+        //The name of the function to be called
+        private string functionName;
+
+        //Construct a new FunctionCall to the function with the name `functionName`
+        public FunctionCall(string functionName)
+        {
+            this.functionName = functionName;
+        }
+    }
+
+    /*
+     * VariableDeclaration (StackStore)
      * 
      * This instruction represents the declaration of a variable.
      */
-    public class VariableDeclaration : Instruction
+    public sealed class VariableDeclaration : Instruction
     {
         //The type, identifier and initial value of the variable
         private string typeName, identifier, initialValue;

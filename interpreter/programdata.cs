@@ -55,21 +55,31 @@ namespace Mirix.Interpreter.Data.Code
             instructionPointer = 0;
         }
 
+        //Return the instruction pointed to by the instruction pointer
         public Instruction getCurrentInstruction()
         {
             return instructions.ToArray()[instructionPointer];
         }
 
+        //Get the count of instructions
+        public int getInstructionCount()
+        {
+            return instructions.Count;
+        }
+
+        //Decrement the instruction pointer
         public void decrementPointer()
         {
             instructionPointer--;
         }
 
+        //Increment the instruction pointer
         public void incrementPointer()
         {
             instructionPointer++;
         }
 
+        //Set the instruction pointer
         public void setPointer(int index)
         {
             instructionPointer = index;
