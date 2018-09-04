@@ -29,13 +29,6 @@ namespace Mirix.Interpreter.Language
             //Represents a scalar value in the Mirix language
             public class Scalar : Value
             {
-                //Because these are built-in to the language there are only a the below mentioned types
-                public enum BuiltInType
-                {
-                    //byte, word (2 bytes), int (4 bytes), int (8 bytes)
-                    typeByte, typeShort, typeInt32, typeInt64;
-                }
-
                 //When constructig make sure the input value is of the given type
                 public Scalar()
                 {
@@ -47,7 +40,13 @@ namespace Mirix.Interpreter.Language
             //Byte
             public sealed class BuiltInByte : Scalar
             {
+                //The value
+                byte value;
 
+                public BuiltInByte(byte value)
+                {
+                    this.value = value;
+                }
             }
 
             //Short (2 bytes)
@@ -65,16 +64,22 @@ namespace Mirix.Interpreter.Language
             //Integer (4 bytes)
             public sealed class BuiltInInt32 : Scalar
             {
+                //The value
+                Int32 value;
 
+                public BuiltInInt32(Int32 value)
+                {
+                    this.value = value;
+                }
             }
 
             //Integer (8 bytes)
             public sealed class BuiltInInt64 : Scalar
             {
-//The value
+                //The value
                 Int64 value;
 
-                public BuiltInInt64(short value)
+                public BuiltInInt64(Int64 value)
                 {
                     this.value = value;
                 }
@@ -91,7 +96,7 @@ namespace Mirix.Interpreter.Language
             {
                 //The elements of the record
                 //TODO default compare kak for dictiary
-                private Dictionary<string, Value> recordElements = new Dictionary<string,Value>();
+                private Dictionary<string, Value> recordElements = new Dictionary<string, Value>();
 
                 //Construct a new Record
                 public Record()
