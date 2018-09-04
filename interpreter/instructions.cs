@@ -13,7 +13,7 @@ namespace Mirix.Instructions
         public static Runner runner;
 
         //All Instructions must implement this method in which they execute their operations
-        public virtual void execute()
+        public void execute()
         {
             Console.Out.WriteLine("Instruction");
         }
