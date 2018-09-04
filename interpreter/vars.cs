@@ -94,6 +94,9 @@ namespace Mirix.Interpreter.Language
 
                 //Add an element to the record
                 public void addElement(Value value, string recordElementName)
+                {
+                    recordElements.Add(value, )
+                }
             }
         }
 

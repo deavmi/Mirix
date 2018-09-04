@@ -65,6 +65,7 @@ namespace Mirix.Instructions
                 if(block.getBlockName().Equals(functionName))
                 {
                     executeBlock = block;
+                    Console.Out.WriteLine("Found a block/function with name\""+block.getBlockName()+"\".");
                     break; 
                 }
             }
@@ -73,11 +74,25 @@ namespace Mirix.Instructions
             if(executeBlock == null)
             {
                 errored = true;
+                Console.Out.WriteLine("Could not find a block/function with name \""+functionName+"\".");
             }
             else
             {
                 //TODO: Add code to execute the block here
                 //We must update stuff, new stack, etc.
+                Interpreter.Data.Stack.Stack stack = runner.getStack();
+
+                //Generate a new StackFrame
+                Interpreter.Data.Stack.StackFrame stackFrame = new Interpreter.Data.Stack.StackFrame();
+                
+                //Add the stack frame to the stack
+                stack.addFrame(stackFrame);
+
+                //Now we need to save kak right?
+                //TODO: Save IP?
+                //or already saved
+                //TODO restore IP later?
+                //TODO select the correct block now via block pointer
             }
 
             return errored;
