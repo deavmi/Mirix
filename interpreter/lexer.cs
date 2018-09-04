@@ -38,10 +38,26 @@ namespace Mirix.Interpreter.Lexer
                         currentToken = "";
                     }
                 }
-                //When encountering a semi-colon
-                else if (currentChar == ';')
+                //When encountering a semi-colon/ or curly braces or round braces or square braces
+                else if (currentChar == ';' || currentChar == '{' || currentChar == '}' ||
+                        currentChar == '('  || currentChar == ')' || currentChar == '[' ||
+                        currentChar == ']')
                 {
                     //TODO
+                    if (!currentToken.Equals(""))
+                    {
+                        Token builtToken = new Token(currentToken);
+                        Console.Out.WriteLine("Created token: \"" + builtToken.getToken() + "\"");
+                        tokens.Add(builtToken);
+
+                        //Clear the `currentToken` token build-up
+                        currentToken = "";
+                    }
+
+                    //Add the semi-colon/ or whatever singleton
+                    Token builtToken = new Token(currentChar);
+                    Console.Out.WriteLine("Created token: \"" + builtToken.getToken() + "\"");
+                    tokens.Add(builtToken);
                 }
                 //If not a whitespace then we collect characters
                 else
