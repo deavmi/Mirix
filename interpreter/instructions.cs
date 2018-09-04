@@ -27,6 +27,23 @@ namespace Mirix.Instructions
         {
             this.functionName = functionName;
         }
+
+        //Returns the name of the function to be called
+        public string getFunctionName()
+        {
+            return functionName;
+        }
+    }
+
+
+    /*
+    * VariableAssignment
+    *
+    * This instructions represents an assignment of a value to a variable.
+    */
+    public sealed class VariableAssignment : Instruction
+    {
+        //TODO: Implement me
     }
 
     /*
