@@ -5,7 +5,7 @@ namespace Mirix.Instructions
     using Interpreter.Execution;
 
     //Represents an instruction
-    public class Instruction
+    public abstract class Instruction
     {
 
         //The Runner object that all instructions come from
@@ -13,15 +13,7 @@ namespace Mirix.Instructions
         public static Runner runner;
 
         //All Instructions must implement this method in which they execute their operations
-        public void execute()
-        {
-            Console.Out.WriteLine("Instruction");
-        }
-
-        //TODO:
-        //Make abstract []
-        //Add abstract method
-        //Add other kak
+        public abstract void execute();
     }
 
     /*
@@ -48,8 +40,8 @@ namespace Mirix.Instructions
         }
 
         //When we execute a function call what we want to do is the following:
-        //TODO
-        public void execute()
+        //TODO new keyword?
+        public new void execute()
         {
             Console.Out.WriteLine("FunctionCall");
         }
