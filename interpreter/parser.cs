@@ -47,6 +47,7 @@ namespace Mirix
                                 //If we get the keyword `function` then we can go ahead
                                 //TODO: Remove me after halt test
                                 Console.Out.WriteLine("HALT");
+                                //DONE I am right increment and impement me actually lol
                                 continue;
                             }
                             else
