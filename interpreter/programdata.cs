@@ -4,14 +4,12 @@ namespace Mirix.Interpreter.Data.Code
     using System.Collections.Generic;
     using Instructions;
 
-    //ProgramData structure
+    //ProgramData structure (holds the generated blocks)
+    //TODO remove pointer, per new call we must make a copy of the code from here
     public sealed class ProgramData
     {
         //Array of blocks of code (functions/sub routines) that make up our program
         private Block[] blocks;
-
-        //Pointer to the code block currently being executed
-        private int currentBlockPointer;
 
         //Construct a new ProgramData with the given blocks (functions/sub routines)
         public ProgramData(Block[] blocks)
@@ -19,9 +17,36 @@ namespace Mirix.Interpreter.Data.Code
             //Add the blocks
             this.blocks = blocks;
 
+            
+        }
+
+        //Returns a list of all this program's blocks (functions/sub-routines)
+        public Block[] getBlocks()
+        {
+            return blocks;
+        }
+
+    }
+
+
+    //BlockStack
+    //
+    //Holds a stack of Blocks
+    public sealed class BlockStack
+    {
+        //An array of the blocks
+        private List<Block> instructions;
+
+        //Pointer to the code block currently being executed
+        private int currentBlockPointer;
+
+        //Construct a new BlockStack
+        public BlockStack()
+        {
             //Set the currentBlockPointer to the first block (execution begins here)
             currentBlockPointer = 0;
         }
+
 
         public void setBlockPointer(int blockIndex)
         {
@@ -33,14 +58,7 @@ namespace Mirix.Interpreter.Data.Code
             return blocks[currentBlockPointer];
         }
 
-        //Returns a list of all this program's blocks (functions/sub-routines)
-        public Block[] getBlocks()
-        {
-            return blocks;
-        }
-
     }
-
 
     //Removed instructiojn pointer fro here, this must be in the executor code rather, block must not change
     //A Block of code (sub routine/function)
