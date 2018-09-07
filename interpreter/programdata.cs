@@ -16,8 +16,6 @@ namespace Mirix.Interpreter.Data.Code
         {
             //Add the blocks
             this.blocks = blocks;
-
-            
         }
 
         //Returns a list of all this program's blocks (functions/sub-routines)
@@ -25,17 +23,15 @@ namespace Mirix.Interpreter.Data.Code
         {
             return blocks;
         }
-
     }
-
 
     //BlockStack
     //
     //Holds a stack of Blocks
-    public sealed class BlockStack
+    public sealed class BlockStack //TODO: fix this all
     {
         //An array of the blocks
-        private List<Block> instructions;
+        private List<Block> blocks = nameof List<Block>();
 
         //Pointer to the code block currently being executed
         private int currentBlockPointer;
@@ -47,17 +43,31 @@ namespace Mirix.Interpreter.Data.Code
             currentBlockPointer = 0;
         }
 
+        public void returnBlock()
+        {
+            //TODO: Implement me
+            currentBlockPointer++;
+        }
+
+        public Block getCurrentBlock()
+        {
+            //TODO: Implement me
+            return blocks.ToArray()[currentBlockPointer];
+        }
+
+        public void addBlock(Block block)
+        {
+            //Add the given block
+            blocks.Add(block);
+
+            //Increment the block pointer
+            currentBlockPointer++;
+        }
 
         public void setBlockPointer(int blockIndex)
         {
             currentBlockPointer = blockIndex;
         }
-
-        public Block getCurrentBlock()
-        {
-            return blocks[currentBlockPointer];
-        }
-
     }
 
     //Removed instructiojn pointer fro here, this must be in the executor code rather, block must not change

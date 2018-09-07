@@ -94,9 +94,10 @@ namespace Mirix
                     return blocks.ToArray();
                 }
 
-                private static Instruction[] parseInstructions(int tokenIndex, Token[] tokens)
-                {   //TODO look at ref and without it!!!!!!!!!!
-
+                private static Instruction[] parseInstructions (ref int tokenIndex, Token[] tokens)
+                {
+                    //TODO look at ref and without it!!!!!!!!!!
+                    
                 }
 
                 private static Block parseFunction(ref int tokenIndex, string functionName, Token[] tokens, ref bool error)
@@ -140,8 +141,9 @@ namespace Mirix
                             //Console.Oout.WriteLine(ref tokenIndex); //That would deref it like whenever we are getting its value
                             //deref when passed as ref to function and somewhere in there it derefs it. When we pass it here we are only
                             //passing a reference to it but when arithmetic happens it derefs. TODO
-
-                            Instruction[] instructions = parseInstructions(tokenIndex);
+                            //Without ref passes the value stored in variable `tokenIndex`
+                            //WIth ref passes in a reference to the variable  ``tokenIndex`
+                            Instruction[] instructions = parseInstructions(ref tokenIndex, tokens);
 
                             if(currentToken.Equals('}'))
                             {
